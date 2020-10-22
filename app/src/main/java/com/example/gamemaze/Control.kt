@@ -11,11 +11,11 @@ class Control(private val gm: GameManager) {
     private var run : Boolean = false
     private val tvScore: TextView = mainContext.findViewById(R.id.tvScore)
     init {
-        move()
+        moveKeys()
         additionalKeys()
     }
 
-    private fun move(){
+    private fun moveKeys(){
         val btUp : Button = mainContext.findViewById(R.id.btUp)
         val btDown : Button = mainContext.findViewById(R.id.btDown)
         val btLeft  : Button = mainContext.findViewById(R.id.btLeft)

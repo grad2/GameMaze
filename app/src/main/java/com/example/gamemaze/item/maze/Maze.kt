@@ -79,7 +79,6 @@ class Maze(
                     bestScore = stack.size
                     start = current
 
-                    // exit
                     array[1][0] = true;
                 }
                 stack.pop()
