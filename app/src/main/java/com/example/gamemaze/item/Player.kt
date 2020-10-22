@@ -11,7 +11,7 @@ import com.example.gamemaze.R
 class Player(context: Context, start: Point, size: Int) : Dot(size, start, getPaint(context)) {
     companion object {
         private fun getPaint(context: Context): Paint {
-            val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+            val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
             paint.color = ContextCompat.getColor(context, R.color.colorPlayer)
             return paint
         }

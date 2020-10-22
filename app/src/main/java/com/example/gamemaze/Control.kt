@@ -9,17 +9,17 @@ import android.widget.Toast
 class Control(private val gm: GameManager) {
     private val mainContext: MainActivity = gm.context as MainActivity
     private var run : Boolean = false
-    val tvScore = mainContext.findViewById<TextView>(R.id.tvScore)
+    private val tvScore: TextView = mainContext.findViewById(R.id.tvScore)
     init {
         move()
         additionalKeys()
     }
 
     private fun move(){
-        val btUp = mainContext.findViewById<Button>(R.id.btUp)
-        val btDown = mainContext.findViewById<Button>(R.id.btDown)
-        val btLeft = mainContext.findViewById<Button>(R.id.btLeft)
-        val btRight = mainContext.findViewById<Button>(R.id.btRight)
+        val btUp : Button = mainContext.findViewById(R.id.btUp)
+        val btDown : Button = mainContext.findViewById(R.id.btDown)
+        val btLeft  : Button = mainContext.findViewById(R.id.btLeft)
+        val btRight  : Button = mainContext.findViewById(R.id.btRight)
 
         btUp.setOnClickListener { goMove(0,-1) }
         btDown.setOnClickListener { goMove(0,1) }
@@ -28,8 +28,8 @@ class Control(private val gm: GameManager) {
 
     }
     private fun goMove(diffX : Int, diffY : Int){
-        var stepX = gm.player.x
-        var stepY = gm.player.y
+        var stepX : Int = gm.player.x
+        var stepY : Int = gm.player.y
 
         if (run){
             while (gm.maze.canPlayerGoTo(stepX + diffX, stepY + diffY)) {
@@ -78,11 +78,11 @@ class Control(private val gm: GameManager) {
         }
     }
     private fun additionalKeys(){
-        val swRun = mainContext.findViewById<Switch>(R.id.swRun)
+        val swRun : Switch = mainContext.findViewById(R.id.swRun)
         swRun.setOnCheckedChangeListener { _, isChecked ->
             run = isChecked
         }
-        val btRestart = mainContext.findViewById<Button>(R.id.btRestart)
+        val btRestart : Button = mainContext.findViewById(R.id.btRestart)
         btRestart.setOnClickListener {
             gm.create(gm.maze.size)
             gm.view.invalidate()

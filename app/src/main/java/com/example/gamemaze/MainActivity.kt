@@ -9,10 +9,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val lvMap = findViewById<LinearLayout>(R.id.lvMap)
+        val lvMap  : LinearLayout = findViewById(R.id.lvMap)
 
         val gameManager : GameManager = GameManager(this)
-        val view = MazeView(this, gameManager)
+        val view : MazeView = MazeView(this, gameManager)
         view.invalidate()
         lvMap.addView(view)
     }

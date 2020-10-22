@@ -70,8 +70,8 @@ class Maze(
             if (unusedNeighbors.size > 0){
                 val rnd = Random.nextInt(unusedNeighbors.size)
                 val direction : Point = unusedNeighbors[rnd]
-                val diffX = (direction.x - current.x) / 2
-                val diffY = (direction.y - current.y) / 2
+                val diffX : Int = (direction.x - current.x) / 2
+                val diffY : Int = (direction.y - current.y) / 2
                 array[current.y + diffY][current.x + diffX] = true
                 stack.push(direction)
             }else{

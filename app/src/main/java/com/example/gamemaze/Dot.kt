@@ -6,7 +6,7 @@ import android.graphics.Point
 import android.graphics.Rect
 import java.util.*
 
-open class Dot(val size: Int, var point: Point, var paint: Paint) : Drawable {
+open class Dot(private val size: Int, var point: Point, var paint: Paint) : Drawable {
 
     fun goTo(x: Int, y: Int) {
         point.x = x
@@ -19,7 +19,7 @@ open class Dot(val size: Int, var point: Point, var paint: Paint) : Drawable {
         get() = point.y
 
     override fun draw(canvas: Canvas, rect: Rect) {
-        val cellSize = ((rect.right - rect.left) / size).toFloat()
+        val cellSize  : Float = ((rect.right - rect.left) / size).toFloat()
         canvas.drawRect(
             rect.left + point.x * cellSize,
             rect.top + point.y * cellSize,
