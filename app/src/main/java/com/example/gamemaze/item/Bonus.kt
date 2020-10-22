@@ -23,12 +23,17 @@ class Bonus(private val gm: GameManager, private val size : Int) : Drawable {
             val rndY : Int = rand(1, size - 1)
             val bonus : Point = Point(rndX,rndY)
             if (gm.maze.start != bonus) {
-                for (list in listPoint){
-                    if(list != bonus) {
-                        listPoint.add(bonus)
-                        break
+                if (listPoint.size == 0){
+                    listPoint.add(bonus)
+                }else{
+                    for (list in listPoint){
+                        if(list != bonus) {
+                            listPoint.add(bonus)
+                            break
+                        }
                     }
                 }
+
             }
         }
     }
