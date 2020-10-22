@@ -72,7 +72,7 @@ class Control(private val gm: GameManager) {
                 gm.bonus.listPoint.remove(Point(x,y))
                 Toast.makeText(mainContext, "Бонус собран", Toast.LENGTH_LONG).show()
                 gm.score = gm.score + 1
-                tvScore.text =gm.score.toString()
+                tvScore.text ="Собранно: ${gm.score}"
                 return
             }
         }

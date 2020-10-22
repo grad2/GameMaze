@@ -1,11 +1,9 @@
 package com.example.gamemaze.item
 
-import android.content.Context
+
 import android.graphics.*
-import androidx.core.content.ContextCompat
 import com.example.gamemaze.Drawable
 import com.example.gamemaze.GameManager
-import com.example.gamemaze.R
 import kotlin.collections.ArrayList
 
 class Bonus(val gm: GameManager, private val size : Int) : Drawable {
@@ -25,7 +23,12 @@ class Bonus(val gm: GameManager, private val size : Int) : Drawable {
             val rndY = rand(1, size - 1)
             val bonus = Point(rndX,rndY)
             if (gm.maze.start != bonus) {
-                listPoint.add(bonus)
+                for (list in listPoint){
+                    if(list != bonus) {
+                        listPoint.add(bonus)
+                        break
+                    }
+                }
             }
         }
     }
