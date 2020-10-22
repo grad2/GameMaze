@@ -70,7 +70,7 @@ class Control(private val gm: GameManager) {
         for (i in gm.bonus.listPoint){
             if (x == i.x && y == i.y) {
                 gm.bonus.listPoint.remove(Point(x,y))
-                Toast.makeText(mainContext, "Бонус собран", Toast.LENGTH_LONG).show()
+                Toast.makeText(mainContext, "Бонус собран", Toast.LENGTH_SHORT).show()
                 gm.score = gm.score + 1
                 tvScore.text ="Собранно: ${gm.score}"
                 return
