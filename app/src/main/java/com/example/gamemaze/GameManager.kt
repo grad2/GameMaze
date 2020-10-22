@@ -17,6 +17,7 @@ class GameManager(val context: Context) {
     lateinit var player : Player
     lateinit var maze : Maze
     lateinit var bonus: Bonus
+    var score: Int = 0
     private var rect : Rect = Rect()
     init {
         create(5)

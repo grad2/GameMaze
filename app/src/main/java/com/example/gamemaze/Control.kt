@@ -3,11 +3,13 @@ package com.example.gamemaze
 import android.graphics.Point
 import android.widget.Button
 import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
 
 class Control(private val gm: GameManager) {
     private val mainContext: MainActivity = gm.context as MainActivity
     private var run : Boolean = false
+    val tvScore = mainContext.findViewById<TextView>(R.id.tvScore)
     init {
         move()
         additionalKeys()
@@ -69,17 +71,13 @@ class Control(private val gm: GameManager) {
             if (x == i.x && y == i.y) {
                 gm.bonus.listPoint.remove(Point(x,y))
                 Toast.makeText(mainContext, "Бонус собран", Toast.LENGTH_LONG).show()
+                gm.score = gm.score + 1
+                tvScore.text =gm.score.toString()
                 return
             }
         }
     }
     private fun additionalKeys(){
-        val swFog = mainContext.findViewById<Switch>(R.id.swFog)
-        swFog.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
-
-            }
-        }
         val swRun = mainContext.findViewById<Switch>(R.id.swRun)
         swRun.setOnCheckedChangeListener { _, isChecked ->
             run = isChecked
